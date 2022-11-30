@@ -1,9 +1,11 @@
 import "./App.css";
-import Hello from "./Hello";
+import ButtonDisplay from "./calcbutton/ButtonDisplay";
 
 function App() {
   return (
-    <Hello />
+    <>
+      <ButtonDisplay />
+    </>
   );
 }
 
