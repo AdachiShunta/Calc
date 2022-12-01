@@ -4,7 +4,6 @@ import Button from "./calcbutton/Button";
 import { calclate, State } from "../logic/calclate";
 
 const Calclator = () => {
-  // const [pushButton, setPushButton] = useState("");
   const [state, setState] = useState<State>({
     current: "0",
     operand: 0,
@@ -12,6 +11,7 @@ const Calclator = () => {
     isClear: false,
   });
   //eの型？？
+  //stateで定義して下の階層で関数定義、こっちで取得
   const buttonHandler = (e: { target: { value: string }; }) => {
   // const buttonHandler = (e: any) => {
     console.log("calclator=" + e.target.value);
