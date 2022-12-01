@@ -1,19 +1,14 @@
-type btn = {
-  btn: string | number;
-  buttonHandler: any;
-};
-
 // const handleClick = (e: any) => {
 //   console.log(e.target.value);
 // };
-const ButtonPalel: React.FC<btn> = ({ btn, buttonHandler }) => {
+const ButtonPanel = (props: { btn: string, buttonHandler:any}) => {
   return (
     <>
-      <button value={btn} onClick={buttonHandler}>
-        {btn}
+      <button value={props.btn} onClick={props.buttonHandler}>
+        {props.btn}
       </button>
     </>
   );
 };
 
-export default ButtonPalel;
+export default ButtonPanel;

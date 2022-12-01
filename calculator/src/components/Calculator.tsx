@@ -21,7 +21,6 @@ const Calclator = () => {
     <>
       <Display current={state.current}/>
       <Button buttonHandler={buttonHandler} />
-      <p>calclator</p>
     </>
   );
 };

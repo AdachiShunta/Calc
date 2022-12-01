@@ -5,7 +5,7 @@ export type State = {
   current: string;
   //計算に使う数値
   operand: number;
-  //どの計算をしたい？
+  //どの計算か(+,-)
   operator: string | null;
   isClear: boolean;
 };
@@ -70,16 +70,15 @@ const isEqualButton = (pushButton: string) => {
 
 //ボタンが数字だった場合の処理
 const handleNumberButton = (pushButton: string, state: State): State => {
-  if (state.isClear) {
-    return {
-      current: pushButton,
-      operand: state.operand,
-      operator: state.operator,
-      isClear: false,
-    };
-  }
-  //現在の値が0ならば
-  if (state.current === "0") {
+  // console.log(
+  //   "state=" + state.current,
+  //   state.operand,
+  //   state.operator,
+  //   state.isClear
+  // );
+
+  //現在の値が0かisClearがtrue
+  if (state.current === "0" || state.isClear) {
     return {
       current: pushButton,
       operand: state.operand,
@@ -99,7 +98,6 @@ const handleNumberButton = (pushButton: string, state: State): State => {
 
 //ボタンが+か-の時の処理
 const handleOperatorButton = (pushButton: string, state: State): State => {
-  console.log("state=" + state.current, state.operand, state.operator, state.isClear);
   if (state.operator === null) {
     return {
       current: state.current,
@@ -108,7 +106,6 @@ const handleOperatorButton = (pushButton: string, state: State): State => {
       isClear: true,
     };
   }
-  console.log("handleOperator=" + state.operator);
   //値を計算
   const calclateValue = operate(state);
   return {
@@ -173,8 +170,15 @@ const handleAllClearButton = (): State => {
 };
 
 const handleEqualButton = (state: State): State => {
+  console.log(
+    "state=" + state.current,
+    state.operand,
+    state.operator,
+    state.isClear
+  );
   const calclateValue = operate(state);
   return {
+    //計算した値
     current: String(calclateValue),
     operand: 0,
     operator: null,
