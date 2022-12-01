@@ -1,10 +1,10 @@
 import "./App.css";
-import ButtonDisplay from "./calcbutton/ButtonDisplay";
+import Calclator from "./components/Calculator";
 
 function App() {
   return (
     <>
-      <ButtonDisplay />
+      <Calclator />
     </>
   );
 }
