@@ -11,7 +11,7 @@ export type State = {
 };
 
 export const calclate = (pushButton: string, state: State): State => {
-  //数値？
+  //数値かどうか？
   if (isNumberButton(pushButton)) {
     return handleNumberButton(pushButton, state);
   }

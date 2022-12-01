@@ -5,7 +5,6 @@ type btn = {
   buttonHandler: any;
 };
 const Button: React.FC<btn> = ({ buttonHandler }) => {
-  // const [inputNum, setInputNum] = useState(0);
   return (
     <>
       <div className={"high"}>

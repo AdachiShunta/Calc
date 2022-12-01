@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Display from "./Display";
 import Button from "./calcbutton/Button";
-import { calclate, State} from "../logic/calclate";
-
+import { calclate, State } from "../logic/calclate";
 
 const Calclator = () => {
   // const [pushButton, setPushButton] = useState("");
@@ -12,14 +11,16 @@ const Calclator = () => {
     operator: null,
     isClear: false,
   });
-  const buttonHandler = (e: any) => {
+  //eの型？？
+  const buttonHandler = (e: { target: { value: string }; }) => {
+  // const buttonHandler = (e: any) => {
     console.log("calclator=" + e.target.value);
     //calclateを呼び出し、stateにセット
     setState(calclate(e.target.value, state));
   };
   return (
     <>
-      <Display current={state.current}/>
+      <Display current={state.current} />
       <Button buttonHandler={buttonHandler} />
     </>
   );
