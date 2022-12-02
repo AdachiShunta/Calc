@@ -98,6 +98,12 @@ const handleNumberButton = (pushButton: string, state: State): State => {
 
 //ボタンが+か-の時の処理
 const handleOperatorButton = (pushButton: string, state: State): State => {
+  // console.log(
+  //   "state=" + state.current,
+  //   state.operand,
+  //   state.operator,
+  //   state.isClear
+  // );
   if (state.operator === null) {
     return {
       current: state.current,
@@ -170,12 +176,12 @@ const handleAllClearButton = (): State => {
 };
 
 const handleEqualButton = (state: State): State => {
-  console.log(
-    "state=" + state.current,
-    state.operand,
-    state.operator,
-    state.isClear
-  );
+  // console.log(
+  //   "state=" + state.current,
+  //   state.operand,
+  //   state.operator,
+  //   state.isClear
+  // );
   const calclateValue = operate(state);
   return {
     //計算した値

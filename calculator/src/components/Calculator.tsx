@@ -12,11 +12,17 @@ const Calclator = () => {
   });
   //eの型？？
   //stateで定義して下の階層で関数定義、こっちで取得
-  const buttonHandler = (e: { target: { value: string }; }) => {
-  // const buttonHandler = (e: any) => {
+  const buttonHandler = (e: { target: { value: string } }): void => {
+    // const buttonHandler = (e: any) => {
     console.log("calclator=" + e.target.value);
     //calclateを呼び出し、stateにセット
     setState(calclate(e.target.value, state));
+    console.log(
+      "state=" + state.current,
+      state.operand,
+      state.operator,
+      state.isClear
+    );
   };
   return (
     <>
